@@ -1,0 +1,13 @@
+{%extends "base.html"%}
+
+{%block content%}
+
+<div class="container">
+  <div class="row">
+    {% block prereservation %}{% endblock %}
+    {% block reservation_content %}{% endblock %}
+    {% block postreservation %}{% endblock %}
+  </div>
+</div>
+
+{%endblock%}

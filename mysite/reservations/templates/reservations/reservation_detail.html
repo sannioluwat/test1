@@ -1,0 +1,19 @@
+{%extends "reservations/reservation_base.html"%}
+
+##if statement (book_date__date__lt=F('check_in__date') that shows template 'credit' or someething that shows 'C'
+## on the list besides their name even after checking in.
+
+{% block content %}
+{{reservation.pk}}<br>
+{{reservation.roomNumber.name}}<br>
+{{reservation.room_price}}<br>
+{{reservation.customer_name}}<br>
+{{reservation.check_in}}<br>
+{{reservation.check_out}}<br>
+{{reservation.no_of_days}}<br>
+
+{% if user.is_authenticated %}
+<a class="btn btn-primary" href="{% url 'reservations:update' pk=reservation.pk %}"><span class="fa fa-pencil"></span></a>
+{% endif %}
+
+{%endblock%}

@@ -1,0 +1,36 @@
+{%extends "rooms/room_base.html"%}
+
+
+    {% block preroom %}{% endblock %}
+    {% block room_content %}
+    <div class="container">
+      <div class="row">
+        <!-- {% if request.user.is_authenticated %} -->
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Room Name</th>
+              <th scope="col">Room Type</th>
+              <th scope="col">Room Price</th>
+              <th scope="col">Display Priority</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%for room in room_list%}
+            <tr>
+              <td>{{room.name}}</td>
+              <td>{{room.roomtype.name}}</td>
+              <td>{{room.roomtype.price}}</td>
+              <td>{{room.roomtype.priority}}</td>
+            </tr>
+            {%endfor%}
+          </tbody>
+          </table>
+        <!-- {% endif %} -->
+      </div>
+    </div>
+    
+    {% endblock %}
+    {% block postroom %}{% endblock %}
+
+

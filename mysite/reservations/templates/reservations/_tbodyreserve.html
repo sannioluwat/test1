@@ -1,0 +1,57 @@
+
+        <tbody>
+        <tr class="{% if reservation.roomstatus == 'checkin' %} tbodycolor{% endif %}">
+          <td>{{reservation.roomNumber.name}}</td>
+          <!-- <td>{{reservation.check_in_in}}</td> -->
+          <td>{{reservation.customer_name}}</td>
+          <td>{{reservation.total_cost}}</td>
+          <td>
+            {{ reservation.check_in |date:"D d M Y" }}
+            
+          </td>
+          <td>{{reservation.check_out|date:"D d M Y" }}</td>
+          <td>{{reservation.no_of_days}}</td> 
+          <td>
+            <!-- {% now "G" as check_in_time %}
+            {%if reservation.roomstatus == 'reserve' and check_in_time >= '10'%}
+            <a href="{% url 'reservations:cust_checkin' pk=reservation.pk %}" class="btn btn-info" role="button"><i class="bi bi-pen"></i></i></a>
+            
+            {%elif reservation.roomstatus == 'checkin'%}
+
+            <a href="{% url 'reservations:cust_checkout' pk=reservation.pk %}" class="btn btn-success" role="button"><i class="bi bi-pen"></i></i></a>
+
+          
+
+            {%endif%}
+
+            <form method="POST" action="{% url 'reservations:delete' pk=reservation.pk %}">
+              {% csrf_token %}
+              <button class="btn btn-danger" type="submit" ><i class="bi bi-trash"></i></i></button>
+           </form>  -->
+
+
+        <ul class="list-inline m-0">
+          {%if reservation.roomstatus == 'reserve' and check_in_time >= '10'%}
+            <li class="list-inline-item">
+            <a href="{% url 'reservations:cust_checkin' pk=reservation.pk%}" class="btn btn-success btn-sm rounded-0" data-toggle="tooltip" data-placement="top" title="Check In" role="button"><i class="bi bi-check-lg"></i></a>
+            </li>
+          {%elif reservation.roomstatus == 'checkin'%}
+            <li class="list-inline-item">
+              <a href="{% url 'reservations:cust_checkout' pk=reservation.pk%}" class="btn btn-danger btn-sm rounded-0" data-toggle="tooltip" data-placement="top" title="Check Out" role="button"><i class="bi bi-x-lg"></i></a>
+              </li>
+          {%endif%}
+            <li class="list-inline-item">
+              <a href="{% url 'reservations:detail' pk=reservation.pk%}" class="btn btn-warning btn-sm rounded-0" data-toggle="tooltip" data-placement="top" title="Details" role="button"><i class="bi bi-pen"></i></i></a>
+              </li>
+              <li class="list-inline-item">
+                <form method="POST" action="{% url 'reservations:delete' pk=reservation.pk %}">
+                  {% csrf_token %}
+                  <button class="btn btn-danger btn-sm rounded-0" type="submit" data-toggle="tooltip" data-placement="top" title="Delete"><i class="bi bi-trash3"></i></button>
+               </form> 
+                </li>
+        </ul>
+           
+          </td>
+        </tr>
+      </tbody>
+        {#%endfor%#}

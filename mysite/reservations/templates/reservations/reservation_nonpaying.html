@@ -1,0 +1,31 @@
+{%extends "reservations/reservation_base.html"%}
+
+{%block content%}
+<div class="container">
+  <div class="row">
+    <h1>{% now "P" %}</h1>
+    {#% if request.user.is_authenticated %#}
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <!-- <th scope="col">#</th> -->
+          <th scope="col">Room Name</th>
+          <th scope="col">Customer Name</th>
+          <!-- <th scope="col">Customer Name</th> -->
+          <th scope="col">Price</th>
+          <th scope="col">Check In</th>
+          <th scope="col">Check Out</th>
+          <th scope="col">Number of Days</th>
+          <th scope="col">Modify</th>
+        </tr>
+      </thead>
+      
+
+      {% for reservation in nonpaying_list %}
+      {% include "reservations/_tbodyreserve.html" %}
+    {% endfor %}
+     
+    </table>
+ 
+   
+  {% endblock %}

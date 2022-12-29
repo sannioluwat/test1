@@ -1,0 +1,13 @@
+{%extends "base.html"%}
+
+{%block content%}
+
+<div class="container">
+  <div class="row">
+    {% block preroom %}{% endblock %}
+    {% block room_content %}{% endblock %}
+    {% block postroom %}{% endblock %}
+  </div>
+</div>
+
+{%endblock%}

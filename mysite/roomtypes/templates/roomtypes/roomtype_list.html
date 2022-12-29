@@ -1,0 +1,38 @@
+{%extends "roomtypes/roomtype_base.html"%}
+
+
+    {% block preroom %}{% endblock %}
+    {% block room_content %}
+    <div class="container">
+      <div class="row">
+        <!-- {% if request.user.is_authenticated %} -->
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Price</th>
+              <th scope="col">Description</th>
+              <th scope="col">Display Priority</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%for roomtype in roomtype_list%}
+            <tr>
+              <th scope="row">{{roomtype.pk}}</th>
+              <td>{{roomtype.name}}</td>
+              <td>{{roomtype.price}}</td>
+              <td>{{roomtype.desc}}</td>
+              <td>{{roomtype.priority}}</td>
+            </tr>
+            {%endfor%}
+          </tbody>
+          </table>
+        <!-- {% endif %} -->
+      </div>
+    </div>
+    
+    {% endblock %}
+    {% block postroom %}{% endblock %}
+
+
