@@ -74,15 +74,13 @@ class ReservationForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         # discount = kwargs.pop('discount')
-        enable_my_bool = kwargs.pop('discount', True)
-
         super().__init__(*args, **kwargs)
-        # if self.fields['discount'] == (None or '10' or '20' or '30'):
-        # del self.fields['extra_field']
-        # self.fields.pop('extra_field')
-        # print('yes')
-        if not enable_my_bool:
+        if self.fields['discount'] == (None or '10' or '20' or '30'):
+            # del self.fields['extra_field']
             self.fields.pop('extra_field')
+            print('yes')
+
+
 # class PaymentForm(forms.ModelForm):
 #     class Meta:
 #         model = models.Payment
