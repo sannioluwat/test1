@@ -80,33 +80,33 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-if DEBUG:
+# if DEBUG:
 
-    DATABASES = {
+#     DATABASES = {
 
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'test',
-            'USER': 'tosin',
-            'PASSWORD': 'adminc',
-            'HOST': 'localhost',
-            'PORT': ''
+#         'default': {
+#             'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#             'NAME': 'test',
+#             'USER': 'tosin',
+#             'PASSWORD': 'adminc',
+#             'HOST': 'localhost',
+#             'PORT': ''
 
 
-        }
+#         }
+#     }
+
+# else:
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'myproject',
+        'USER': 'myprojectuser',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
+        'PORT': '',
     }
-
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'myproject',
-            'USER': 'myprojectuser',
-            'PASSWORD': 'password',
-            'HOST': 'localhost',
-            'PORT': '',
-        }
-    }
+}
 
 
 # Password validation
